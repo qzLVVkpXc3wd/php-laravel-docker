@@ -36,15 +36,6 @@ return new class extends Migration
             $table->string('free1')->nullable()->comment('自由欄１');
             $table->string('free2')->nullable()->comment('自由欄２');
             $table->string('free3')->nullable()->comment('自由欄３');
-            $table->integer('dtl_rowno')->nullable()->comment('明細行番号');
-            $table->string('dtl_item_id')->nullable()->comment('明細商品 ID');
-            $table->string('dtl_item_name')->nullable()->comment('明細商品名称');
-            $table->integer('dtl_item_count')->nullable()->comment('明細数量');
-            $table->integer('dtl_tax')->nullable()->comment('明細税額');
-            $table->integer('dtl_amount')->nullable()->comment('明細金額（税込）');
-            $table->string('dtl_free1')->nullable()->comment('明細自由欄 1');
-            $table->string('dtl_free2')->nullable()->comment('明細自由欄 2');
-            $table->string('dtl_free3')->nullable()->comment('明細自由欄 3');
             $table->integer('request_date')->nullable()->comment('リクエスト日時');
             $table->string('res_pay_method')->nullable()->comment('処理結果 支払方法');
             $table->string('res_result')->nullable()->comment('処理結果ステータス');
