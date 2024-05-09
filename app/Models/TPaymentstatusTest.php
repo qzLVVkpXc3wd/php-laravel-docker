@@ -9,5 +9,5 @@ class TPaymentstatusTest extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['res_result','res_tracking_id'];
+    protected $guarded = ["dtl_free3"];
 }
