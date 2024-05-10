@@ -36,7 +36,9 @@ class CgiResultController extends Controller
      */
     public function store(CgiResultRequest $request)
     {
-        $tpaymentstatustests = TPaymentstatusTest::create($request->all());
+        $records = $request->request->all();
+        mb_convert_variables("UTF-8","SJIS-win",$records);
+        $tpaymentstatustests = TPaymentstatusTest::create($records);
 
         if(strcmp($request->res_result,'OK') == 0){
             $content = 'OK,';
