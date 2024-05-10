@@ -9,5 +9,5 @@ class TPaymentstatusTest extends Model
 {
     use HasFactory;
 
-    protected $guarded = ["free1","updated_at"];
+    protected $guarded = [];
 }
