@@ -36,7 +36,6 @@ class CgiResultController extends Controller
      */
     public function store(CgiResultRequest $request)
     {
-        Log::debug($request->method(), ['url' => $request->fullUrl(), 'request' => $request->all()]);
         $tpaymentstatustests = TPaymentstatusTest::create($request->all());
 
         if(strcmp($request->res_result,'OK') == 0){
