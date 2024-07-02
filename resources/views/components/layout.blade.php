@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('scss/details.scss') }}">
     <title>{{ $title ?? '天使大学 Web出願システム' }}</title>
