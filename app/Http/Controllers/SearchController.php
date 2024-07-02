@@ -7,7 +7,7 @@ use App\Models\T_Syutsugansya;
 
 class SearchController extends Controller
 {
-    public function search(Request $request)
+    public function store(Request $request)
     {
         $param = $request->input('param');
 
