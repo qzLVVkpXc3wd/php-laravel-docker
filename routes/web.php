@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/search',[SearchController::class,'search']);
+Route::post('/search',[SearchController::class,'store']);
 Route::get('/form', function () {
     return view('search/form');
 });
