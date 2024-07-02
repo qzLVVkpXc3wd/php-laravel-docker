@@ -1,6 +1,5 @@
 <x-layout>
     <div class="w-75">
-        @csrf
         <h1>入力内容の確認</h1>
         @if ($results->isEmpty())
             <details>
