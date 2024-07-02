@@ -1,0 +1,71 @@
+.title {
+    text-align: center;
+
+    
+}
+.section-title {
+    background-color: rgba(207, 231, 245, 1);
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top:1%;
+    padding-bottom: 1%;
+}
+.section-title-center{
+    text-align: center;
+}
+.section-contents {
+    
+    padding-left:10%;
+    padding-right: 10%;
+    
+}
+.terms-iframe {
+    width: 100%;
+    
+}
+
+.form-content {
+    padding-top:1em;
+    padding-bottom: 1em;
+}
+.terms {
+    background-color:#f8f8f0;
+}
+
+.button {
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    /**width:15em; */
+}
+.back-color {
+    background-color:rgba(0,0,0,0);
+    color: rgba(153, 176, 189, 1);
+    border-color: rgba(153, 176, 189, 1);
+    border-radius: 3px;
+    box-shadow: 0px;
+}
+.submit-color {
+    background-color:rgba(49, 119, 159, 1);
+    color: rgba(249, 249, 249, 1);
+    border-color: rgba(49, 119, 159, 1);
+    border-radius: 4px;
+    box-shadow: 0px;
+}
+.button-full {
+    width:100%;
+}
+.button-half {
+    width:49%;
+}
+
+main{
+    flex:1;
+    overflow-y: scroll;
+}
+
+footer {
+  position: absolute;
+  bottom: auto;
+  height: 150px;
+  width: 100%;
+}
