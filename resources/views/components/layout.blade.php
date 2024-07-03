@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('/scss/details.scss') }}">
+    <link rel="stylesheet" href="{{ asset('/css/details.scss') }}">
     <title>{{ $title ?? '天使大学 Web出願システム' }}</title>
     @if (session('flash_success'))
         <div class="alert_success bg-success text-center py-3 my-0">
