@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
+use App\Http\Middleware\VerifyCsrfToken;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/search',[SearchController::class,'store']);
+Route::post('/search',[SearchController::class,'store'])->withoutMiddleware(VerifyCsrfToken::class);
 Route::get('/form', function () {
     return view('search/form');
 });
