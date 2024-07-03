@@ -1,10 +1,9 @@
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])
 <html>
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('scss/details.scss') }}">
+    <link rel="stylesheet" href="../../../public/css/main.css">
+    <link rel="stylesheet" href="../../../public/scss/details.scss">
     <title>{{ $title ?? '天使大学 Web出願システム' }}</title>
     @if (session('flash_success'))
         <div class="alert_success bg-success text-center py-3 my-0">
