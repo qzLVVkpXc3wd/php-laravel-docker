@@ -1,3 +1,17 @@
+html {
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0 auto 0 auto;
+    max-width: 900px;
+    min-height: 940px;
+    padding:2rem 1rem 6rem 1rem;
+    background-color: #fff;
+    height: auto;
+}
+
 .title {
     text-align: center;
 
@@ -56,16 +70,4 @@
 }
 .button-half {
     width:49%;
-}
-
-main{
-    flex:1;
-    overflow-y: scroll;
-}
-
-footer {
-  position: absolute;
-  bottom: auto;
-  height: 150px;
-  width: 100%;
 }
