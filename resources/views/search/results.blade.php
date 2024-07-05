@@ -8,14 +8,24 @@
         @else
             <h2>選抜状況</h2>
             @foreach ($results as $result)
-                <div style="background-color:rgb(255, 255, 255)" class="d-flex align-items-center">
-                    <details>
-                        <summary>{{ $result->nys_sbt_name }}</summary>
-                        <p>志望学科{{ $result->gakka_cd_1 }}</p>
-                        <p>試験会場{{ $result->kaijo_cd }}</p>
-                        <p>決済ステータス{{ $result->res_result }}</p>
-                        <p>支払日時{{ $result->shiharai_date }}</p>
-                    </details>
+                <div class="accordion" id="status">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button type="button" class="accordion-button" data-bs-toggle="collapse"
+                                data-bs-target={{ '#' . $result->nys_sbt_name }} aria-expanded="true"
+                                aria-controls={{ $result->nys_sbt_name }}>
+                                {{ $result->nys_sbt_name }}
+                            </button>
+                        </h2>
+                        <div id={{ $result->nys_sbt_name }} class="accordion-collapse collapse" data-bs-parent="#status">
+                            <div class="accordion-body">
+                                <p>志望学科{{ $result->gakka_cd_1 }}</p>
+                                <p>試験会場{{ $result->kaijo_cd }}</p>
+                                <p>決済ステータス{{ $result->res_result }}</p>
+                                <p>支払日時{{ $result->shiharai_date }}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             @endforeach
             <h2>本人情報</h2>
