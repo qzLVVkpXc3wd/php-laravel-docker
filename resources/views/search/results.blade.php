@@ -17,7 +17,7 @@
                                 {{ $result->nys_sbt_name }}
                             </button>
                         </h2>
-                        <div id={{ $result->nys_sbt_name }} class="accordion-collapse collapse" data-bs-parent="#status">
+                        <div id="{{ $result->nys_sbt_name }}" class="accordion-collapse collapse" data-bs-parent="#status">
                             <div class="accordion-body">
                                 <p>志望学科{{ $result->gakka_cd_1 }}</p>
                                 <p>試験会場{{ $result->kaijo_cd }}</p>
