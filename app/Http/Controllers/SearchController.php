@@ -10,10 +10,18 @@ class SearchController extends Controller
     public function store(Request $request)
     {
         $param = $request->input('param');
-        logs()->notice($param);
         $results = T_Syutsugansya::leftJoin('m_nys_sbt','t_syutsugansyas.senbatu_kbn','=','m_nys_sbt.nys_sbt_cd')
             ->where('google_account', $param)->select('t_syutsugansyas.*','m_nys_sbt.nys_sbt_name')->get();
-        logs()->notice('test', ['ここ' => 'きた']);
         return view('search.results', ['results' => $results]);
     }
+    public function exam(Request $request)
+    {
+        $param = $request->input('param');
+        $results = T_Syutsugansya::leftJoin('m_nys_sbt','t_syutsugansyas.senbatu_kbn','=','m_nys_sbt.nys_sbt_cd')
+            ->where('google_account', $param)
+            ->orderBy('m_nys_sbt.nys_sbt_cd')
+            ->select('t_syutsugansyas.*','m_nys_sbt.nys_sbt_name','m_nys_sbt.schedulemessage')->get();        
+        return view('search.exam', ['results' => $results]);
+    }
+    
 }
