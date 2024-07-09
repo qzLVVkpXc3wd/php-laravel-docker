@@ -19,7 +19,10 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/search',[SearchController::class,'store'])->withoutMiddleware(VerifyCsrfToken::class);
+
 Route::get('/form', function () {
     return view('search/form');
 });
+
+Route::post('/search',[SearchController::class,'store'])->withoutMiddleware(VerifyCsrfToken::class);
+Route::post('/exam',[SearchController::class,'exam'])->withoutMiddleware(VerifyCsrfToken::class);
