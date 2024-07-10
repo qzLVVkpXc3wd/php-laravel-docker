@@ -23,37 +23,12 @@ class SearchController extends Controller
             ->select('t_syutsugansyas.*','m_nys_sbt.nys_sbt_name','m_nys_sbt.schedulemessage')->get();        
         return view('search.exam', ['results' => $results]);
     }
-    public function resultlist(Request $request)
-    {
-        // リクエストパラメータを取得
-        $param = $request->input('param');
-        logs()->notice($param);
-        // データベースを検索
-        $results = T_Syutsugansya::leftJoin('m_nys_sbt as nys','t_syutsugansyas.senbatu_kbn','=','nys.nys_sbt_cd')
-            ->leftJoin('t_shigansya_gohi_temp as tmp','t_syutsugansyas.juken_cd','=','tmp.juken_cd')
-            ->leftJoin('m_gohi_sbt as gohi',function($join){
-                $join->on('tmp.nyushi_nendo','=','gohi.nyushi_nendo')
-                    ->on('tmp.nyushi_gakki_no','=','gohi.nyushi_gakki_no')
-                    ->on('tmp.gohi_sbt_cd','=','gohi.gohi_sbt_cd');
-            })
-            ->where('t_syutsugansyas.google_account', $param)
-            ->orderBy('nys.nys_sbt_cd')
-            ->select('t_syutsugansyas.juken_cd','t_syutsugansyas.google_account','nys.nys_sbt_cd','nys.nys_sbt_name','tmp.gohi_date','gohi.gohi_sbt_name')
-            ->get();        
-        
-        $request->session()->put('account', $param);
-        // 結果をビューに渡して表示
-        return view('search.resultlist', ['results' => $results]);
-    }
 
     public function examresult(Request $request)
     {
         // リクエストパラメータを取得
-        $nys_sbt_cd = $request->input('submit');
-        $param = $request->session()->get('account');
-        logs()->notice($nys_sbt_cd);
-        logs()->notice($param);
-        $result = T_Syutsugansya::leftJoin('m_nys_sbt as nys','t_syutsugansyas.senbatu_kbn','=','nys.nys_sbt_cd')
+        $param = $request->input('param');
+        $results = T_Syutsugansya::leftJoin('m_nys_sbt as nys','t_syutsugansyas.senbatu_kbn','=','nys.nys_sbt_cd')
             ->leftJoin('t_shigansya_gohi_temp as tmp','t_syutsugansyas.juken_cd','=','tmp.juken_cd')
             ->leftJoin('m_gohi_sbt as gohi',function($join){
                 $join->on('tmp.nyushi_nendo','=','gohi.nyushi_nendo')
@@ -65,14 +40,21 @@ class SearchController extends Controller
                     ->on('t_syutsugansyas.gakka_cd_1','=','gakka.gakka_cd');
             })
             ->where('t_syutsugansyas.google_account', $param)
-            ->where('t_syutsugansyas.senbatu_kbn', $nys_sbt_cd)
             ->orderBy('nys.nys_sbt_cd')
-            ->select('t_syutsugansyas.juken_cd','t_syutsugansyas.shigansya_sei_kanji','t_syutsugansyas.shigansya_mei_kanji'
-            ,'nys.nys_sbt_name','gohi.gohi_sbt_cd','gakka.print_gakka_name','gohi.nyushi_nendo',
-            'tmp.gohi_date','gohi.gohi_sbt_disp_name')
-            ->first();        
+            ->select('t_syutsugansyas.juken_cd',
+                    't_syutsugansyas.google_account',
+                    't_syutsugansyas.shigansya_sei_kanji',
+                    't_syutsugansyas.shigansya_mei_kanji',
+                    'nys.nys_sbt_cd',
+                    'nys.nys_sbt_name',
+                    'gohi.nyushi_nendo',
+                    'gohi.gohi_sbt_cd',
+                    'gohi.gohi_sbt_disp_name',
+                    'gakka.print_gakka_name',
+                    'tmp.gohi_date')
+            ->get();        
         
         // 結果をビューに渡して表示
-        return view('search.examresult', ['result' => $result]);
-    }    
+        return view('search.examresult', ['results' => $results]);
+    }  
 }
