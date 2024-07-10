@@ -26,5 +26,4 @@ Route::get('/form', function () {
 
 Route::post('/search',[SearchController::class,'store'])->withoutMiddleware(VerifyCsrfToken::class);
 Route::post('/exam',[SearchController::class,'exam'])->withoutMiddleware(VerifyCsrfToken::class);
-Route::post('/resultlist',[SearchController::class,'resultlist'])->withoutMiddleware(VerifyCsrfToken::class);;
 Route::post('/examresult',[SearchController::class,'examresult'])->withoutMiddleware(VerifyCsrfToken::class);;
