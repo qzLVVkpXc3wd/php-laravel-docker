@@ -36,7 +36,7 @@ Route::get('/edit', function () {
     return view('google/edit');
 });
 // 志望修正画面呼び出し
-Route::post('/edit', [ApplicantController::class, 'editApplicantInfo']);
+Route::post('/edit', [ApplicantController::class, 'editApplicantInfo'])->withoutMiddleware(VerifyCsrfToken::class);
 // 志望理由修正
 Route::post('/update', [ApplicantController::class, 'updateApplicantInfo']);
 Route::post('/updateApplicantInfo', [ApplicantController::class, 'updateApplicantInfo']);
