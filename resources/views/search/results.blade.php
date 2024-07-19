@@ -1,6 +1,15 @@
-<x-layout>
-    <div class="w-75">
-        <h1>入力内容の確認</h1>
+<head>
+    @include('includeHead')
+</head>
+
+<body>
+    <div class="container bg-primary-subtle">
+        <h1>
+            入力内容の確認
+        </h1>
+    </div>
+
+    <div class="container">
         @if ($results->isEmpty())
             <details>
                 <summary>該当する結果はありません。</summary>
@@ -30,27 +39,32 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2 my-box">{{ $result->shigansya_sei_kana }}</div>
-                    <div class="col-2 my-box">{{ $result->shigansya_mei_kana }}</div>
-                    <div class="col-3 my-box">{{ $result->honnin_birthday }}生</div>
-                    <div class="col-5 my-box">携帯：{{ $result->honnin_keitai_tel }}</div>
+                    <div class="col-auto my-box">{{ $result->shigansya_sei_kana }}</div>
+                    <div class="col-auto my-box">{{ $result->shigansya_mei_kana }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-2 my-box">{{ $result->shigansya_sei_kanji }}</div>
-                    <div class="col-2 my-box">{{ $result->shigansya_mei_kanji }}</div>
-                    <div class="col-3 my-box">{{ $result->honnin_mailaddress }}</div>
-                    <div class="col-5 my-box">自宅：{{ $result->honnin_jitaku_tel }}</div>
+                    <div class="col-auto my-box">{{ $result->shigansya_sei_kanji }}</div>
+                    <div class="col-auto my-box">{{ $result->shigansya_mei_kanji }}</div>
+                    <div class="col-1"></div>
+                    <div class="col-auto my-box">{{ $result->honnin_birthday }}生</div>
                 </div>
                 <div class="row">
-                    <div class="col-4 my-box">〒{{ $result->honnin_yubin }}</div>
+                    <div class="col-auto my-box">携帯：{{ $result->honnin_keitai_tel }}</div>
+                    <div class="col-auto my-box">自宅：{{ $result->honnin_jitaku_tel }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-12 my-box">
+                    <div class="col-auto my-box">{{ $result->honnin_mailaddress }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-auto my-box">〒{{ $result->honnin_yubin }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-auto my-box">
                         {{ $result->honnin_address_kana_1 . '　' . $result->honnin_address_kana_2 }}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 my-box">
+                    <div class="col-auto my-box">
                         {{ $result->honnin_address_1 . '　' . $result->honnin_address_2 }}
                     </div>
                 </div>
@@ -58,10 +72,11 @@
             <h2 class="mt-3">出身校情報</h2>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-6 my-box">{{ $result->shushinko_address }} {{ $result->shushinko_name . '高等学校' }}
+                    <div class="col-automy-box">{{ $result->shushinko_address }}
+                        {{ $result->shushinko_name . '高等学校' }}
                         {{ $result->shushinko_katei }} {{ $result->shushinko_gakka }}
                     </div>
-                    <div class="col-6 my-box">
+                    <div class="col-auto my-box">
                         {{ date('Y年m月d日', strtotime($result->shushinko_nyugak_nengetu)) }}　～　{{ date('Y年m月d日', strtotime($result->shushinko_sotugyo_nengetu)) }}
                     </div>
                 </div>
@@ -70,32 +85,36 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-2 my-box">{{ $result->hogosha_sei_kana }}</div>
-                    <div class="col-2 my-box">{{ $result->hogosha_mei_kana }}</div>
-                    <div class="col-3 my-box"></div>
-                    <div class="col-5 my-box">携帯：{{ $result->hogosha_keitai_tel }}</div>
+                    <div class="col-auto my-box">{{ $result->hogosha_sei_kana }}</div>
+                    <div class="col-auto my-box">{{ $result->hogosha_mei_kana }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-auto my-box">{{ $result->hogosha_sei_kanji }}</div>
+                    <div class="col-auto my-box">{{ $result->hogosha_mei_kanji }}</div>
+                    <div class="col-1"></div>
+                    <div class="col-auto my-box">{{ $result->hogosha_zokugara }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-auto my-box">携帯：{{ $result->hogosha_keitai_tel }}</div>
+                </div>
+                <div class="row">
 
+                    <div class="col-auto my-box">自宅：{{ $result->hogosha_jitaku_tel }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-2 my-box">{{ $result->hogosha_sei_kanji }}</div>
-                    <div class="col-2 my-box">{{ $result->hogosha_mei_kanji }}</div>
-                    <div class="col-3 my-box">{{ $result->hogosha_zokugara }}</div>
-                    <div class="col-5 my-box">自宅：{{ $result->hogosha_jitaku_tel }}</div>
+                    <div class="col-auto my-box">〒{{ $result->hogosha_yubin }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-4 my-box">〒{{ $result->hogosha_yubin }}</div>
-                </div>
-                <div class="row">
-                    <div class="col-12 my-box">
+                    <div class="col-auto my-box">
                         {{ $result->hogosha_address_kana_1 . '　' . $result->hogosha_address_kana_2 }}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 my-box">
+                    <div class="col-auto my-box">
                         {{ $result->hogosha_address_1 . '　' . $result->hogosha_address_2 }}
                     </div>
                 </div>
             </div>
         @endif
     </div>
-</x-layout>
+</body>
