@@ -3,6 +3,7 @@
   <head>
     @include('includeHead')
     <script type="text/javascript" src="{{asset('/js/edit_applicant_info.js')}}"> </script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   </head>
   <body>
     @include('nav')
