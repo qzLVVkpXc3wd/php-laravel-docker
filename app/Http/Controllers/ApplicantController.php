@@ -17,9 +17,9 @@ class ApplicantController extends Controller
         $mail = $request->input('google_account');
         
         // 志願者の大学院フラグを取得
-        $daigakin_flg = DB::table('t_syutsugansya_test')
+        $daigakin_flg = DB::table('t_syutsugansyas')
         ->select('m_gakka.daigakin_flg')
-        ->leftjoin('m_gakka', 't_syutsugansya_test.gakka_cd_1', '=', 'm_gakka.gakka_cd')
+        ->leftjoin('m_gakka', 't_syutsugansyas.gakka_cd_1', '=', 'm_gakka.gakka_cd')
         ->where('google_account', $request->input('google_account'))
         ->where('nyushi_nendo', '2024')// 開催年度
         ->where('nyushi_gakki_no', '1')// 入試学期（１固定？）
@@ -34,15 +34,15 @@ class ApplicantController extends Controller
         
 
         // 志望理由テーブルより、志願者の入力済み志望理由を全て取得
-        $shibo_riyus = DB::table('t_shibo_riyu_test')
-        ->leftjoin('m_gakka', 't_shibo_riyu_test.gakka_cd', '=', 'm_gakka.gakka_cd')
+        $shibo_riyus = DB::table('t_shibo_riyu')
+        ->leftjoin('m_gakka', 't_shibo_riyu.gakka_cd', '=', 'm_gakka.gakka_cd')
         ->where('google_account', $request->input('google_account'))
         ->where('nyushi_nendo', '2024')// 開催年度
         ->where('nyushi_gakki_no', '1')// 入試学期（１固定？）
         ->get();
         
         // 活動報告テーブルより、志願者の入力済み活動報告を取得（1件のみ）
-        $katsudo_hokoku = DB::table('t_katsudo_hokoku_test')
+        $katsudo_hokoku = DB::table('t_katsudo_hokoku')
         ->where('google_account', $request->input('google_account'))
         ->first();
         
@@ -70,7 +70,7 @@ class ApplicantController extends Controller
         // 学部の志望理由（配列）を取得
         $gakubu_shiboriyus = $request->input('gakubu_shiboriyu');
         foreach((array)$gakubu_shiboriyus as $key => $value){
-            DB::table('t_shibo_riyu_test')
+            DB::table('t_shibo_riyu')
             ->where('google_account', $google_account)
             ->where('gakka_cd', $key)
             ->update([
@@ -82,7 +82,7 @@ class ApplicantController extends Controller
         $daigakin_flg = $request->session()->get('daigakin_flg');
         // 学部の場合、活動報告書を更新する
         if($daigakin_flg == '0'){
-            DB::table('t_katsudo_hokoku_test')
+            DB::table('t_katsudo_hokoku')
             ->where('google_account', $google_account)
             ->update([
                 'katsudo_hokoku_1_1' =>  $request->input('katsudo_hokoku_1_1')
@@ -96,7 +96,7 @@ class ApplicantController extends Controller
         // 大学院の志望理由（配列）を取得
         $daigakuin_shiboriyus = $request->input('daigakuin_shiboriyu');
         foreach((array)$daigakuin_shiboriyus as $key => $value){
-            DB::table('t_shibo_riyu_test')
+            DB::table('t_shibo_riyu')
             ->where('google_account', $google_account)
             ->where('gakka_cd', $key)
             ->update([
