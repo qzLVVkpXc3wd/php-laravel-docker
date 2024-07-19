@@ -30,10 +30,7 @@ $(function(){
             type: "post",
             //ここでデータの送信先URLを指定します。
             url: "/updateApplicantInfo",
-            data: param,
-            headers: {
-                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-            }
+            data: param
         })
         .done(function(data) {
             // 成功したときの処理
