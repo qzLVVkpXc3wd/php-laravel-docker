@@ -29,6 +29,11 @@ Route::post('/exam',[SearchController::class,'exam'])->withoutMiddleware(VerifyC
 Route::post('/examresult',[SearchController::class,'examresult'])->withoutMiddleware(VerifyCsrfToken::class);
 
 // yamamoto
+
+// 志望理由変更呼び出し
+Route::get('/edit', function () {
+    return view('google/edit');
+});
 // 志望修正画面呼び出し
 Route::post('/edit', [ApplicantController::class, 'editApplicantInfo']);
 // 志望理由修正
