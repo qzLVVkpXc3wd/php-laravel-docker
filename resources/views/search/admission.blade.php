@@ -16,7 +16,9 @@
             </details>
         @else
             <div class="container-fluid">
-                $flg = false;
+                @php
+                    $flg = false;
+                @endphp
                 @foreach ($results as $index => $result)
                     @if ($result->gohi_sbt_cd == '01')
                         <div class="container mt-5">
@@ -26,7 +28,8 @@
                                     <div class="mt-5">
                                         <div class="row mb-3 justify-content-end">
                                             <div class="col-5 text-right">
-                                                {{ '受 験 番 号   ' . $result->juken_cd }}</div>
+                                                {{ '受 験 番 号   ' . $result->juken_cd }}
+                                            </div>
                                         </div>
                                         <div class="row mb-3 justify-content-end">
                                             <div class="col-5 text-right">
@@ -43,7 +46,9 @@
                                             <div class="col-8 text-right">
                                                 {{ date('Y年m月d日', strtotime($result->gohi_date)) }}
                                             </div>
-                                            <div class="col-4 text-left">天使大学</div>
+                                            <div class="col-4 text-left">
+                                                天使大学
+                                            </div>
                                         </div>
                                         <div class="row mb-3 justify-content-end">
                                             <div class="col-4 text-left">学長　田畑 邦治</div>
@@ -52,7 +57,9 @@
                                 </div>
                             </div>
                         </div>
-                        $flg = true;
+                        @php
+                            $flg = true;
+                        @endphp
                     @break
                 @endif
             @endforeach
