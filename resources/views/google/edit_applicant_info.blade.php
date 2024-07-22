@@ -6,7 +6,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
   </head>
   <body>
-    @include('nav')
+<!--     @include('nav') -->
+    <nav class="navbar">
+      <div class="container-fluid">
+        <img src="{{asset('/img/nav-brand.png')}}" width="200" height="50" alt="天使大学">
+      </div>
+    </nav>
     <header>
       <div class="title mb-4">
         <h1>登録情報修正</h1>
