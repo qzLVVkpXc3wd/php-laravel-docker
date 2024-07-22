@@ -3,12 +3,6 @@
 </head>
 
 <body>
-    <div class="container bg-primary-subtle">
-        <h1>
-            入学許可書
-        </h1>
-    </div>
-
     <div class="container">
         @if (empty($results))
             <details>
@@ -68,7 +62,7 @@
                     <summary>該当する結果はありません。</summary>
                 </details>
             @endif
-        </div>
-    @endif
-</div>
+            </div>
+        @endif
+    </div>
 </body>
