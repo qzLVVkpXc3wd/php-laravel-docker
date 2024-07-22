@@ -28,6 +28,7 @@ Route::get('/form', function () {
 Route::post('/search',[SearchController::class,'store'])->withoutMiddleware(VerifyCsrfToken::class);
 Route::post('/exam',[SearchController::class,'exam'])->withoutMiddleware(VerifyCsrfToken::class);
 Route::post('/examresult',[SearchController::class,'examresult'])->withoutMiddleware(VerifyCsrfToken::class);
+Route::post('/admission',[SearchController::class,'admission'])->withoutMiddleware(VerifyCsrfToken::class);
 
 // yamamoto
 
@@ -40,3 +41,4 @@ Route::post('/edit', [ApplicantController::class, 'editApplicantInfo'])->without
 // 志望理由修正
 Route::post('/update', [ApplicantController::class, 'updateApplicantInfo']);
 Route::post('/updateApplicantInfo', [ApplicantController::class, 'updateApplicantInfo']);
+
