@@ -35,6 +35,14 @@
                     <button type="submit">POST</button>
                 </form>
             </div>
+            <div class="row">
+                <label>入学許可</label></label>
+                <form action="/admission" method="POST">
+                    @csrf
+                    <input type="google_account" name="param" placeholder="検索条件を入力">
+                    <button type="submit">POST</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
