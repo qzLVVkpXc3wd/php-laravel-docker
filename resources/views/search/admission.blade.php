@@ -5,9 +5,9 @@
 <body>
     <div class="container">
         @if (empty($results))
-            <details>
-                <summary>該当する結果はありません。</summary>
-            </details>
+            <h2>
+                該当する結果はありません。
+            </h2>
         @else
             <div class="container-fluid">
                 @php
@@ -58,9 +58,9 @@
                 @endif
             @endforeach
             @if ($flg == false)
-                <details>
-                    <summary>該当する結果はありません。</summary>
-                </details>
+                <h2>
+                    該当する結果はありません。
+                </h2>
             @endif
             </div>
         @endif
