@@ -73,7 +73,7 @@
                                                 <div class="bg-cover">
                                                     <div class="row justify-content-center">
                                                         <div class="col-md-8">
-                                                            <h1 class="text-center"><img src="{{asset('/img/emblem.png')}}" width="50" height="50">不 合 格 通 知</h1>
+                                                            <h1 class="text-center"><img src="{{asset('/img/emblem.png')}}" width="70" height="70">不 合 格 通 知</h1>
                                                             <div class="mt-5">
                                                                 <div class="row mb-3 justify-content-end">
                                                                     <div class="col-5 text-right">
