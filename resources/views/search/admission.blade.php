@@ -16,7 +16,7 @@
             </details>
         @else
             <div class="container-fluid">
-                {{$flg = false;}}
+                $flg = false;
                 @foreach ($results as $index => $result)
                     @if ($result->gohi_sbt_cd == '01')
                         <div class="container mt-5">
@@ -52,16 +52,16 @@
                                 </div>
                             </div>
                         </div>
-                        {{$flg = true;}}
-                        @break
-                    @endif
-                @endforeach
-                @if(flg == false)
-                    <details>
-                        <summary>該当する結果はありません。</summary>
-                    </details>                
+                        $flg = true;
+                    @break
                 @endif
-            </div>
-        @endif
-    </div>
+            @endforeach
+            @if ($flg == false)
+                <details>
+                    <summary>該当する結果はありません。</summary>
+                </details>
+            @endif
+        </div>
+    @endif
+</div>
 </body>
