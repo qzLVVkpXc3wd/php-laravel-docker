@@ -71,3 +71,12 @@ body {
 .button-half {
     width:49%;
 }
+.bg-image {
+    background-image: url("{{asset('/img/emblem.png')}}");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.7;
+    padding: 1px;
+    border-radius: 5px;
+}
