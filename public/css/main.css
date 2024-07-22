@@ -76,7 +76,10 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    opacity: 0.7;
     padding: 1px;
     border-radius: 5px;
 }
+.bg-cover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
