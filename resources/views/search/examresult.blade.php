@@ -1,5 +1,18 @@
 <head>
     @include('includeHead')
+    <style>
+        .bg-image {
+                background-image: url("{{asset('/img/emblem.png')}}");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+                padding: 1px;
+                border-radius: 5px;
+        }
+        .bg-cover {
+        background-color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
 </head>
 
 <body>
