@@ -2,15 +2,16 @@
     @include('includeHead')
     <style>
         .bg-image {
-                background-image: url("{{asset('/img/emblem.png')}}");
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center center;
-                padding: 1px;
-                border-radius: 5px;
+            background-image: url("{{ asset('/img/emblem.png') }}");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            padding: 1px;
+            border-radius: 5px;
         }
+
         .bg-cover {
-        background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(255, 255, 255, 0.7);
         }
     </style>
 </head>
@@ -47,15 +48,15 @@
                                             <div class="container mt-5 bg-image">
                                                 <div class="bg-cover">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-md-8">
+                                                        <div class="col-12 col-md-8">
                                                             <h1 class="text-center">合 格 通 知</h1>
                                                             <div class="mt-5">
                                                                 <div class="row mb-3 justify-content-end">
-                                                                    <div class="col-5 text-right">
+                                                                    <div class="col-12 col-md-5 text-right">
                                                                         {{ '受 験 番 号   ' . $result->juken_cd }}</div>
                                                                 </div>
                                                                 <div class="row mb-3 justify-content-end">
-                                                                    <div class="col-5 text-right">
+                                                                    <div class="col-12 col-md-5 text-right">
                                                                         {{ '氏　　　名   ' . $result->shigansya_sei_kanji . '　' . $result->shigansya_mei_kanji }}
                                                                     </div>
                                                                 </div>
@@ -65,14 +66,14 @@
                                                                 </p>
                                                             </div>
                                                             <div class="mt-5">
-                                                                <div class="row mb-3 justify-content-end">
-                                                                    <div class="col-8 text-right">
+                                                                <div class="row  justify-content-end">
+                                                                    <div class="col-12 col-md-8 text-left">
                                                                         {{ date('Y年m月d日', strtotime($result->gohi_date)) }}
                                                                     </div>
-                                                                    <div class="col-4 text-left">天使大学</div>
+                                                                    <div class="col-12 col-md-4 text-left">天使大学</div>
                                                                 </div>
-                                                                <div class="row mb-3 justify-content-end">
-                                                                    <div class="col-4 text-left">学長　田畑 邦治</div>
+                                                                <div class="row justify-content-end">
+                                                                    <div class="col-12 col-md-4 text-left">学長　田畑 邦治</div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -85,15 +86,16 @@
                                             <div class="container mt-5">
                                                 <div class="bg-cover">
                                                     <div class="row justify-content-center">
-                                                        <div class="col-md-8">
-                                                            <h1 class="text-center"><img src="{{asset('/img/emblem.png')}}" width="70" height="70">不 合 格 通 知</h1>
+                                                        <div class="col-12 col-md-8">
+                                                            <h1 class="text-center"><img src="{{ asset('/img/emblem.png') }}"
+                                                                    width="70" height="70">不 合 格 通 知</h1>
                                                             <div class="mt-5">
                                                                 <div class="row mb-3 justify-content-end">
-                                                                    <div class="col-5 text-right">
+                                                                    <div class="col-12 col-md-5 text-right">
                                                                         {{ '受 験 番 号   ' . $result->juken_cd }}</div>
                                                                 </div>
                                                                 <div class="row mb-3 justify-content-end">
-                                                                    <div class="col-5 text-right">
+                                                                    <div class="col-12 col-md-5 text-right">
                                                                         {{ '氏　　　名   ' . $result->shigansya_sei_kanji . '　' . $result->shigansya_mei_kanji }}
                                                                     </div>
                                                                 </div>
@@ -103,14 +105,14 @@
                                                                 </p>
                                                             </div>
                                                             <div class="mt-5">
-                                                                <div class="row mb-3 justify-content-end">
-                                                                    <div class="col-8 text-right">
+                                                                <div class="row  justify-content-end">
+                                                                    <div class="col-12 col-md-8 text-left">
                                                                         {{ date('Y年m月d日', strtotime($result->gohi_date)) }}
                                                                     </div>
-                                                                    <div class="col-4 text-left">天使大学</div>
+                                                                    <div class="col-12 col-md-4 text-left">天使大学</div>
                                                                 </div>
-                                                                <div class="row mb-3 justify-content-end">
-                                                                    <div class="col-4 text-left">学長　田畑 邦治</div>
+                                                                <div class="row justify-content-end">
+                                                                    <div class="col-12 col-md-4 text-left">学長　田畑 邦治</div>
                                                                 </div>
                                                             </div>
                                                         </div>
